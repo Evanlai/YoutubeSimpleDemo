@@ -55,59 +55,54 @@ class HotTextViewController: UITableViewController,UISearchBarDelegate{
                 
                 _ = response.result.error?.localizedDescription
                 
-                
                 return
+                
             }
-            
             
             guard let JSON = response.result.value as? [String:Any] else{
                 
                 return
                 
             }
-            
-            
+    
             // JSON資料帶入 YotubeInfo # ObjectMapper # 作解析
             self.youtubeInfo = YotubeInfo(JSON:JSON)
                 
-                if((self.youtubeInfo?.prevPageToken) != nil){
                 
-                   self.PrevPageToken = (self.youtubeInfo?.prevPageToken)!
-                }
+            // 取得上一頁下一頁資訊 # 目前沒有使用。
+            if((self.youtubeInfo?.prevPageToken) != nil){
+                
+                self.PrevPageToken = (self.youtubeInfo?.prevPageToken)!
+                    
+            }
                 
             self.NextPageToken = (self.youtubeInfo?.nextPageToken)!
             
-                for item in self.youtubeInfo!.items!{
+            for item in self.youtubeInfo!.items!{
                     
-                    self.youtubeItems.append(item)
+                self.youtubeItems.append(item)
                     
-                }
+            }
                 
             self.mytableview.reloadData()
  
-            
         }
     }
-    
     
     // 此寫法是讓中文能夠正常顯示，若直接字串串接會有問題
     func getUrlParameter(str:String) -> Parameters{
         
-        
         let parameters: Parameters = ["part": "snippet","maxResults":"5","q":SearchString,"type":"video","key":"AIzaSyDfgq-CbLXVX_ccXL8CfDh1LpaUk9ygcSU","pageToken":str]
-        
         
         return parameters
         
-        
     }
-    
     
     //init UISearchBar
     func configureSearchController(){
         
         self.searchController = UISearchController(searchResultsController: nil)
-        //searchController.searchResultsUpdater = self
+  
         self.searchController?.dimsBackgroundDuringPresentation = false
         
         self.searchController?.searchBar.placeholder = "Search here..."
@@ -121,23 +116,6 @@ class HotTextViewController: UITableViewController,UISearchBarDelegate{
         self.navigationItem.titleView = searchController?.searchBar
         
     }
-    
-    
-    
-    //
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-    
-        guard let str = self.searchController?.searchBar.text else { return }
-        
-        SearchString = str
-        
-        urlString = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=\(str)&type=video&key=AIzaSyDfgq-CbLXVX_ccXL8CfDh1LpaUk9ygcSU"
-        
-        loadData()
-
-    }
-    
-
     
     // 輸入文字時就開始搜尋
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
