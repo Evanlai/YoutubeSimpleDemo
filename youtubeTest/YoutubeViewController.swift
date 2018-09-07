@@ -7,13 +7,29 @@
 //
 
 import UIKit
+import YoutubeSourceParserKit
+import AVFoundation
 
 class YoutubeViewController: UIViewController {
+    
+    var urlString: String!
+    
+    var avPlayer: AVPlayer!
+    
+    @IBOutlet weak var webView: UIWebView!
 
     override func viewDidLoad() {
+        
         super.viewDidLoad()
+    
+        let url = URL(string: self.urlString)
 
-        // Do any additional setup after loading the view.
+        let request = URLRequest(url: url!)
+
+        self.webView.loadRequest(request)
+        
+        let urlString = "https://www.youtube.com/embed/qf09H2xFq2s"
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,6 +37,8 @@ class YoutubeViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+
 
     /*
     // MARK: - Navigation

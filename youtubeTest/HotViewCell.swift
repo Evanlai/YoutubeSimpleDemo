@@ -9,6 +9,12 @@
 import UIKit
 
 class HotViewCell: UITableViewCell {
+    
+    
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var thumbImageView: UIImageView!
+    @IBOutlet weak var descLabel: UILabel!
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()
