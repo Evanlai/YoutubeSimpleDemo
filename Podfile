@@ -8,7 +8,7 @@ target 'youtubeTest' do
   # Pods for youtubeTest
     pod 'Alamofire'
     pod 'AlamofireImage'
-    pod 'ObjectMapper', '~> 2.2'
+    pod 'ObjectMapper', '~> 3.3'
     pod 'YoutubeSourceParserKit', :git => 'https://github.com/lennet/YoutubeSourceParserKit’
     pod ‘ESPullToRefresh’
 

@@ -112,7 +112,6 @@
 				3BAF8E601F7A276E00220307 /* Frameworks */,
 				3BAF8E611F7A276E00220307 /* Resources */,
 				5184B4C0329D7ED83FF8457F /* [CP] Embed Pods Frameworks */,
-				1275565E28802DA5B858A08C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -172,21 +171,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1275565E28802DA5B858A08C /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-youtubeTest/Pods-youtubeTest-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		42DE6B9B2259C3DD1A889933 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
